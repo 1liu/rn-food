@@ -15,7 +15,7 @@ const SearchScreen = () => {
   //console.log(results)
   return (
     <>
-      <Text style={{textAlign: 'center'}}>We have found {results.length} results</Text>
+      <Text style={{ textAlign: 'center' }}>We have found {results.length} results</Text>
       <SearchBar
         term={term}
         onTermChange={setTerm}
