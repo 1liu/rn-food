@@ -23,11 +23,15 @@ const SearchScreen = () => {
       />
 
       {errorMsg ? <Text>{errorMsg}</Text> : null}
-      <ScrollView>
-        <ResultsList title="Cost Effective" results={filterResultsByPrice('$')} />
-        <ResultsList title="Bit Pricier" results={filterResultsByPrice('$$')} />
-        <ResultsList title="Bit Spender" results={filterResultsByPrice('$$$')} />
-      </ScrollView>
+      {results.length === 0 ?
+        <Text style={{ textAlign: 'center' }}>Waiting for position</Text>
+        : <ScrollView>
+          <ResultsList title="Cost Effective" results={filterResultsByPrice('$')} />
+          <ResultsList title="Bit Pricier" results={filterResultsByPrice('$$')} />
+          <ResultsList title="Bit Spender" results={filterResultsByPrice('$$$')} />
+        </ScrollView>
+      }
+
     </>
   )
 }
