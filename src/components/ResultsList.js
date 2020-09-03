@@ -5,7 +5,7 @@ import ResultDetail from '../components/ResultDetail';
 
 const ResultsList = ({ title, results, navigation }) => {
   return (
-    <View>
+    results.length !== 0 ? <View>
       <Text style={styles.titleStyle}>{title}</Text>
       <FlatList
         horizontal
@@ -14,7 +14,7 @@ const ResultsList = ({ title, results, navigation }) => {
         keyExtractor={result => result.id}
         renderItem={({ item }) => (
           <TouchableOpacity
-            onPress={() => navigation.navigate('Result')}
+            onPress={() => navigation.navigate('Result', { id: item.id })}
           >
             <ResultDetail
               result={item}
@@ -23,6 +23,7 @@ const ResultsList = ({ title, results, navigation }) => {
         )}
       />
     </View>
+      : null
   )
 }
 
